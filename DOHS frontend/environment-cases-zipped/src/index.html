@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Environmental Incident Report Form</title>
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    /> -->
+    <link rel="stylesheet" href="DOHS frontend\my-dohs-report-gen\src\output.css" />
+  </head>
+
+  <body class="bg-white">
+    <h1 class="text-center text-2xl font-bold mt-4">
+      Environmental Incident Report Form
+    </h1>
+    <form action="/environment/generate-report" method="POST" class="max-w-4xl mx-auto p-8">
+      <!-- Incident Details -->
+      <fieldset class="mb-6 p-4">
+        <legend
+          class="text-white bg-custom-teal p-2 w-full text-left pl-2.5 rounded-md"
+        >
+          INCIDENT DETAILS
+        </legend>
+
+        <label class="inline-flex items-center mt-4 w-full">
+          <span class="mr-2 font-medium">Date and time of the incident:</span>
+          <input
+            type="text"
+            name="incidentDetails.dateTime"
+            class="flex-grow p-2 border border-gray-300 rounded-md"
+          />
+        </label>
+
+        <label class="inline-flex items-center mt-4 w-full">
+          <span class="mr-2 font-medium">Location of the incident:</span>
+          <input
+            type="text"
+            name="incidentDetails.location"
+            class="flex-grow p-2 border border-gray-300 rounded-md"
+          />
+        </label>
+
+        <label class="inline-flex items-center mt-4 w-full">
+          <span class="mr-2 font-medium">Describe the incident:</span>
+          <textarea
+            name="incidentDetails.description"
+            class="flex-grow p-2 border border-gray-300 rounded-md"
+          ></textarea>
+        </label>
+
+        <label class="inline-flex items-start mt-4 w-full">
+          <span class="mr-2 flex-shrink-0 font-medium"
+            >Details of the witnesses, if any:</span
+          >
+          <textarea
+            name="incidentDetails.witnesses"
+            class="flex-grow p-2 border border-gray-300 rounded-md"
+          ></textarea>
+        </label>
+      </fieldset>
+
+      <!-- Environmental Impact -->
+      <fieldset class="mb-6 p-4">
+        <legend
+          class="text-white bg-custom-teal p-2 w-full text-left pl-2.5 rounded-md"
+        >
+          ENVIRONMENTAL IMPACT
+        </legend>
+
+        <label class="block font-medium"
+          >Select the appropriate category for the environmental
+          incident:</label
+        >
+        <div class="flex flex-wrap mt-2">
+          <label class="mr-4">
+            <input
+              type="checkbox"
+              name="environmentalImpact.categories"
+              value="Air Pollution"
+              class="mr-2"
+            />Air Pollution
+          </label>
+          <label class="mr-4">
+            <input
+              type="checkbox"
+              name="environmentalImpact.categories"
+              value="Water Pollution"
+              class="mr-2"
+            />Water Pollution
+          </label>
+          <label class="mr-4">
+            <input
+              type="checkbox"
+              name="environmentalImpact.categories"
+              value="Soil Contamination"
+              class="mr-2"
+            />Soil Contamination
+          </label>
+          <label class="mr-4">
+            <input
+              type="checkbox"
+              name="environmentalImpact.categories"
+              value="Hazardous Material Spill"
+              class="mr-2"
+            />Hazardous Material Spill
+          </label>
+          <label class="mr-4">
+            <input
+              type="checkbox"
+              name="environmentalImpact.categories"
+              value="Noise Pollution"
+              class="mr-2"
+            />Noise Pollution
+          </label>
+          <label class="mr-4">
+            <input
+              type="checkbox"
+              name="environmentalImpact.categories"
+              value="Wildlife Disturbance"
+              class="mr-2"
+            />Wildlife Disturbance
+          </label>
+          <label class="mr-4">
+            <input
+              type="checkbox"
+              name="environmentalImpact.categories"
+              value="Other"
+              class="mr-2"
+            />Other
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Description of the Incident -->
+      <fieldset class="mb-6 p-4">
+        <legend
+          class="text-white bg-custom-teal p-2 w-full text-left pl-2.5 rounded-md"
+        >
+          DESCRIPTION OF THE INCIDENT
+        </legend>
+
+        <label class="inline-flex items-start mt-4 w-full">
+          <span class="mr-0.5 font-medium"
+            >Provide a detailed description of the incident, including the
+            nature of the environmental impact and any contributing
+            factors:</span
+          >
+          <textarea
+            name="incidentDescription"
+            class="p-2 border border-gray-300 rounded-md w-full"
+          ></textarea>
+        </label>
+      </fieldset>
+
+      <!-- Immediate Actions Taken -->
+      <fieldset class="mb-6 p-4">
+        <legend
+          class="text-white bg-custom-teal p-2 w-full text-left pl-2.5 rounded-md"
+        >
+          IMMEDIATE ACTIONS TAKEN
+        </legend>
+
+        <label class="inline-flex items-start mt-4 w-full">
+          <span class="mr-0.5 font-medium"
+            >Describe the immediate actions taken to address the incident,
+            contain the environmental impact, and mitigate any further
+            harms:</span
+          >
+          <textarea
+            name="actionsTaken"
+            class="p-2 border border-gray-300 rounded-md w-full"
+          ></textarea>
+        </label>
+      </fieldset>
+
+      <!-- Reporting to Authorities -->
+      <fieldset class="mb-6 p-4">
+        <legend
+          class="text-white bg-custom-teal p-2 w-full text-left pl-2.5 rounded-md"
+        >
+          REPORTING TO AUTHORITIES
+        </legend>
+
+        <label class="block mt-4 font-medium"
+          >Specify whether the incident has been reported to the appropriate
+          authorities:
+          <label class="mr-4">
+            <input
+              type="radio"
+              name="reportingToAuthorities.reported"
+              value="YES"
+              class="mr-2"
+            />YES
+          </label>
+          <label class="mr-4">
+            <input
+              type="radio"
+              name="reportingToAuthorities.reported"
+              value="NO"
+              class="mr-2"
+            />NO
+          </label>
+        </label>
+        <label class="inline-flex items-start mt-4 w-full">
+          <span class="mr-0.5 font-medium"
+            >if yes, provide details of the report and any case/reference
+            numbers:
+          </span>
+          <textarea
+            name="reporting"
+            class="p-2 border border-gray-300 rounded-md w-full"
+          ></textarea>
+        </label>
+      </fieldset>
+
+      <!-- Follow-up Actions -->
+      <fieldset class="mb-6 p-4">
+        <legend
+          class="text-white bg-custom-teal p-2 w-full text-left pl-2.5 rounded-md"
+        >
+          FOLLOW-UP ACTIONS
+        </legend>
+
+        <label class="inline-flex items-start mt-4 w-full">
+          <span class="mr-0.5 font-medium"
+            >Outline any follow-up actions, investigations, or assessments that
+            will be conducted as a result of the incident:
+          </span>
+          <textarea
+            name="follow-up"
+            class="p-2 border border-gray-300 rounded-md w-full"
+          ></textarea>
+        </label>
+      </fieldset>
+
+      <!-- Preventive Measures -->
+      <fieldset class="mb-6 p-4">
+        <legend
+          class="text-white bg-custom-teal p-2 w-full text-left pl-2.5 rounded-md"
+        >
+          PREVENTIVE MEASURES
+        </legend>
+
+        <label class="inline-flex items-start mt-4 w-full">
+          <span class="mr-0.5 font-medium"
+            >What Preventive measures can be implemented to avoid similar
+            incidents in the future?
+          </span>
+          <textarea
+            name="measures"
+            class="p-2 border border-gray-300 rounded-md w-full"
+          ></textarea>
+        </label>
+      </fieldset>
+
+      <!-- Additional Comment -->
+      <fieldset class="mb-6 p-4">
+        <legend
+          class="text-white bg-custom-teal p-2 w-full text-left pl-2.5 rounded-md"
+        >
+          ADDITIONAL COMMENT
+        </legend>
+
+        <label class="inline-flex items-start mt-4 w-full">
+          <span class="mr-0.5 font-medium"
+            >Is there any additional information or comments you would like to
+            include?
+          </span>
+          <textarea
+            name="comments"
+            class="p-2 border border-gray-300 rounded-md w-full"
+          ></textarea>
+        </label>
+      </fieldset>
+
+      <!-- Report Filer -->
+      <fieldset class="mb-6 p-4">
+        <legend
+          class="text-white bg-custom-teal p-2 w-full text-left pl-2.5 rounded-md"
+        >
+          REPORT FILTER
+        </legend>
+
+        <label class="inline-flex items-center mt-4 w-full">
+          <span class="mr-2 font-medium">Name:</span>
+          <input
+            type="text"
+            name="name-of-reporter"
+            class="flex-grow p-2 border border-gray-300 rounded-md"
+          />
+        </label>
+
+        <label class="inline-flex items-center mt-4 w-full">
+          <span class="mr-2 font-medium">Job Title/Role:</span>
+          <input
+            type="text"
+            name="job-title"
+            class="flex-grow p-2 border border-gray-300 rounded-md"
+          />
+        </label>
+
+        <label class="inline-flex items-center mt-4 w-full">
+          <span class="mr-2 font-medium">Contact Details:</span>
+          <input
+            type="text"
+            name="contact-details"
+            class="flex-grow p-2 border border-gray-300 rounded-md"
+          />
+        </label>
+      </fieldset>
+
+      <button
+        type="submit"
+        class="w-full p-3 bg-custom-teal text-white rounded-md mt-4"
+      >
+        Generate Report
+      </button>
+    </form>
+  </body>
+</html>
